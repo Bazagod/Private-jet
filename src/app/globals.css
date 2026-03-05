@@ -1,0 +1,120 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+:root {
+  --background: #08090d;
+  --foreground: #f0ece4;
+  --muted: #8a8693;
+  --subtle: #5c5868;
+  --surface: #0f1016;
+  --surface-alt: #16171f;
+  --surface-elevated: #1c1d27;
+  --border: #1f2029;
+  --border-light: #181920;
+  --accent: #c9a55a;
+  --accent-dim: rgba(201, 165, 90, 0.12);
+  --accent-glow: rgba(201, 165, 90, 0.06);
+  --primary: #c9a55a;
+  --primary-fg: #08090d;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-accent-glow: var(--accent-glow);
+  --color-primary: var(--primary);
+  --color-primary-fg: var(--primary-fg);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; color-scheme: dark; }
+
+body {
+  background: var(--background) !important;
+  color: var(--foreground) !important;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a2b36; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3b46; }
+::selection { background: rgba(201, 165, 90, 0.2); color: #f0ece4; }
+
+/* ── Leaflet ─────────────── */
+.leaflet-container { background: #08090d !important; font-family: inherit !important; width: 100% !important; height: 100% !important; }
+.leaflet-control-zoom { border: none !important; border-radius: 10px !important; overflow: hidden !important; box-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.04) !important; }
+.leaflet-control-zoom a { background: #16171f !important; color: #8a8693 !important; border: none !important; border-bottom: 1px solid #1f2029 !important; width: 36px !important; height: 36px !important; line-height: 36px !important; font-size: 15px !important; transition: all 0.2s !important; }
+.leaflet-control-zoom a:hover { color: #c9a55a !important; background: #1c1d27 !important; }
+.leaflet-control-zoom a:last-child { border-bottom: none !important; }
+.leaflet-popup-content-wrapper { background: #16171f !important; color: #f0ece4 !important; border-radius: 14px !important; border: 1px solid rgba(201,165,90,0.12) !important; box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03) !important; }
+.leaflet-popup-tip { background: #16171f !important; border: none !important; box-shadow: none !important; }
+.leaflet-popup-content { margin: 12px 16px !important; font-size: 13px !important; line-height: 1.5 !important; }
+.leaflet-popup-close-button { display: none !important; }
+
+@keyframes dash-animate { to { stroke-dashoffset: 0; } }
+@keyframes glow-pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.7; } }
+
+/* ── Inputs ──────────────── */
+.form-input {
+  width: 100% !important;
+  padding: 10px 14px !important;
+  background: #0f1016 !important;
+  background-color: #0f1016 !important;
+  border: 1px solid #1f2029 !important;
+  border-radius: 10px !important;
+  color: #f0ece4 !important;
+  font-size: 14px !important;
+  font-family: inherit !important;
+  outline: none !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.form-input:hover { border-color: #2a2b36 !important; }
+.form-input:focus { border-color: #c9a55a !important; box-shadow: 0 0 0 3px rgba(201,165,90,0.08) !important; }
+.form-input::placeholder { color: #5c5868 !important; }
+
+input, textarea, select {
+  color-scheme: dark;
+  background-color: #0f1016;
+  color: #f0ece4;
+}
+
+input[type="date"],
+input[type="number"] {
+  color-scheme: dark;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill {
+  -webkit-text-fill-color: #f0ece4 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #0f1016 inset !important;
+  box-shadow: 0 0 0px 1000px #0f1016 inset !important;
+  background-color: #0f1016 !important;
+  border-color: #1f2029 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.card {
+  background: #12131b;
+  border: 1px solid #1f2029;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
